@@ -54,12 +54,13 @@ const config: HardhatUserConfig = {
       saveDeployments: true,
     },
     fantom: {
-      url: "https://rpcapi.fantom.network",
+      url: "https://rpc.ftm.tools/",
       accounts,
       chainId: 250,
       live: true,
       saveDeployments: true,
-      gasMultiplier: 30,
+      // gasMultiplier: 80,
+      // gasPrice: 2100,
     },
     // "fantom-testnet": {
     //   url: "https://rpc.testnet.fantom.network",
