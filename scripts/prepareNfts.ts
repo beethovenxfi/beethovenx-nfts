@@ -1,7 +1,7 @@
 import fs from "fs";
 import pinataSdk from "@pinata/sdk";
 import path from "path";
-import config from "./arly-ludwigs-template.json";
+import config from "";
 
 const pinataClient = pinataSdk(
   process.env.PINATA_API_KEY!,

@@ -2,7 +2,7 @@ import fs from "fs";
 import { ethers, network } from "hardhat";
 import { BeethovenxEarlyLudwigsNft } from "../types";
 import path from "path";
-import userMapping from "./earlyLudwigsByUser.json";
+import userMapping from "";
 
 async function mintNfts() {
   console.log("network: ", network.name);
