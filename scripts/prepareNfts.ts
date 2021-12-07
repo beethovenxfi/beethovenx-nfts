@@ -73,7 +73,7 @@ async function prepareNfts() {
     console.log("error preparing nfts, storing current results");
   } finally {
     fs.writeFileSync(
-      path.join(__dirname, `earlyLudwigsByUser.json`),
+      path.join(__dirname, `prepared_nfts.json`),
       JSON.stringify(preparedNfts)
     );
   }
