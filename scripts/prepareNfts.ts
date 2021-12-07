@@ -23,8 +23,8 @@ type NftConfig = {
 async function prepareNfts() {
   const nftConfigs: NftConfig[] = config;
 
-  const preparedNfts: Record<string, { ipfs: string; transferred: boolean }> =
-    {};
+  const preparedNfts: { ipfs: string; user: string; transferred: boolean }[] =
+    [];
 
   try {
     for (let nftConfig of nftConfigs) {
@@ -63,10 +63,11 @@ async function prepareNfts() {
         },
       });
       console.log("response", JSON.stringify(pinMetadataResponse));
-      preparedNfts[nftConfig.userAddress] = {
+      preparedNfts.push({
+        user: nftConfig.userAddress,
         ipfs: pinMetadataResponse.IpfsHash,
         transferred: false,
-      };
+      });
     }
   } catch (error) {
     console.log("error preparing nfts, storing current results");

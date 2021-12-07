@@ -1,6 +1,10 @@
 {
   "name": "hardhat-project",
   "license": "MIT",
+  "scripts": {
+    "prepare": "ts-node -r dotenv/config --transpile-only scripts/prepareNfts.ts",
+    "mint": "ts-node -r dotenv/config --transpile-only scripts/mintNfts.ts"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-etherscan": "^2.1.6",
