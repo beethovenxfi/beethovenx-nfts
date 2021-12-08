@@ -1,6 +1,6 @@
 import fs from "fs";
 import { ethers, network } from "hardhat";
-import { BeethovenxEarlyLudwigsNft } from "../types";
+import { BeethovenxPartnerNft } from "../types";
 import path from "path";
 import userMapping from "./prepared_nfts.json";
 
@@ -14,9 +14,9 @@ async function mintNfts() {
   }[] = userMapping;
 
   const nftContract = (await ethers.getContractAt(
-    "BeethovenxEarlyLudwigsNft",
-    "0xf2558d6a252C1041a3902870B1FdB0B7524B3098"
-  )) as BeethovenxEarlyLudwigsNft;
+    "BeethovenxPartnerNft",
+    "0x07FE1B2242D376234c46648A1a5dF3795cD81ea3"
+  )) as BeethovenxPartnerNft;
 
   for (let nftConfig of preparedNfts) {
     if (!nftConfig.transferred) {

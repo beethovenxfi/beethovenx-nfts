@@ -1,7 +1,7 @@
 import fs from "fs";
 import pinataSdk from "@pinata/sdk";
 import path from "path";
-import config from "";
+import config from "./metadata-config.json";
 
 const pinataClient = pinataSdk(
   process.env.PINATA_API_KEY!,
@@ -15,9 +15,7 @@ type NftConfig = {
   fileTitle: string;
   description: string;
   collection: string;
-  characters: string;
-  theme: string;
-  reference: string;
+  partnership: string;
 };
 
 async function prepareNfts() {
@@ -39,11 +37,9 @@ async function prepareNfts() {
         fileName,
         fileTitle,
         description,
-        characters,
         rarity,
         collection,
-        reference,
-        theme,
+        partnership,
       } = nftConfig;
 
       const metadata = {
@@ -51,11 +47,9 @@ async function prepareNfts() {
         description: description,
         image: `ipfs://${pinImageResponse.IpfsHash}`,
         fileName,
-        characters,
         rarity,
         collection,
-        reference,
-        theme,
+        partnership,
       };
       const pinMetadataResponse = await pinataClient.pinJSONToIPFS(metadata, {
         pinataMetadata: {
